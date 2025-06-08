@@ -7,7 +7,13 @@ export default function TodoItem({ item, todos, setTodos }) {
             (todo) =>
                 todo.name === item.name ? { ...todo, done: !todo.done } : todo // Toggle the done status
         );
-        setTodos(updatedTodos);
+        setTodos(updatedTodos); // Update the state with the new list
+    }
+
+    function handleDelete(item) {
+        console.log("Delete item:", item.name);
+        const updatedTodos = todos.filter((todo) => todo != item); // Remove the item from the list
+        setTodos(updatedTodos); // Update the state with the new list
     }
 
     const completedClassName = item.done ? styles.complete : "";
@@ -22,9 +28,16 @@ export default function TodoItem({ item, todos, setTodos }) {
                     {item.name}
                 </span>
                 <span>
-                    <button>X</button>
+                    <button
+                        onClick={() => handleDelete(item)}
+                        className={styles.deleteButton}
+                    >
+                        X
+                    </button>
                 </span>
             </div>
+
+            <hr className={styles.line} />
         </div>
     );
 }
