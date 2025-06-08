@@ -1,0 +1,22 @@
+.modernButton {
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    background-color: brown;
+    color: white;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.modernInput {
+    font-size: 16px;
+}
+
+.modernInput:focus {
+    outline: none;
+    border: 2px solid brown;
+}
+
+.inputContainer {
+    display: flex;
+}
